@@ -2,20 +2,13 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>hellllo2.</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
+import AppText from "./app/components/AppText";
+import AppButton from "./app/components/AppButton";
+import Card from "./app/components/Card";
+import ListDetailsScreen from "./app/screens/ListDetailsScreen";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default function App() {
+  return <ViewImageScreen />;
+}
