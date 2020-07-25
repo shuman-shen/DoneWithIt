@@ -8,7 +8,15 @@ import AppText from "./app/components/AppText";
 import AppButton from "./app/components/AppButton";
 import Card from "./app/components/Card";
 import ListDetailsScreen from "./app/screens/ListDetailsScreen";
+import MessageScreen from "./app/screens/MessageScreen";
+import DeliveryListScreen from "./app/screens/DeliveryListScreen";
+import Screen from "./app/components/Screen";
+import Icon from "./app/components/Icon";
 
 export default function App() {
-  return <ViewImageScreen />;
+  return (
+    <Screen>
+      <Icon name="email" />
+    </Screen>
+  );
 }

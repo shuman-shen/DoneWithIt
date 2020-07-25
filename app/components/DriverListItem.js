@@ -1,16 +1,26 @@
 import React from "react";
-import { Image, View, StyleSheet, TouchableHighlight } from "react-native";
+import { View, StyleSheet, TouchableHighlight, Text } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
 import AppText from "../components/AppText";
 import colours from "../config/colours";
 
-const ListItem = ({ image, title, subtitle, onPress, renderRightActions }) => (
+const DriverListItem = ({
+  sequence,
+  title,
+  subtitle,
+  onPress,
+  renderRightActions,
+}) => (
   <Swipeable renderRightActions={renderRightActions}>
     <TouchableHighlight underlayColor={colours.lightGrey} onPress={onPress}>
       <View style={styles.container}>
-        <Image style={styles.image} source={image} />
-        <View>
+        <View style={styles.sequence}>
+          <Text style={{ fontSize: 20, color: "white" }}>
+            {title.charAt(0)}
+          </Text>
+        </View>
+        <View style={{ flex: 1 }}>
           <AppText style={styles.title}>{title}</AppText>
           <AppText style={styles.subtitle}>{subtitle}</AppText>
         </View>
@@ -22,19 +32,25 @@ const ListItem = ({ image, title, subtitle, onPress, renderRightActions }) => (
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 15,
+    paddingVertical: 15,
+    paddingHorizontal: 5,
   },
-  image: {
-    width: 70,
-    height: 70,
+  sequence: {
+    width: 40,
+    height: 40,
     borderRadius: 35,
-    marginHorizontal: 20,
+    backgroundColor: colours.secondary,
+    marginHorizontal: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontWeight: "500",
+    fontSize: 16,
   },
   subtitle: {
     color: colours.mediumGrey,
+    fontSize: 14,
   },
 });
-export default ListItem;
+export default DriverListItem;
