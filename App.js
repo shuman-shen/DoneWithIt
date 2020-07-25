@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -12,11 +12,29 @@ import MessageScreen from "./app/screens/MessageScreen";
 import DeliveryListScreen from "./app/screens/DeliveryListScreen";
 import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
+import ListItem from "./app/components/ListItem";
+import AccountScreen from "./app/screens/AccountScreen";
+import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+
+const list = [
+  { label: "Furniture", value: 1 },
+  { label: "Houseware", value: 2 },
+  { label: "Clothings", value: 3 },
+];
 
 export default function App() {
+  const [category, setCategory] = useState(); //category object, not label
   return (
     <Screen>
-      <Icon name="email" />
+      <AppPicker
+        items={list}
+        icon="apps"
+        placeholder="Category"
+        selectedItem={category}
+        onSelectedItem={(item) => setCategory(item)}
+      />
     </Screen>
   );
 }
