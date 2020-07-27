@@ -17,24 +17,8 @@ import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
-
-const list = [
-  { label: "Furniture", value: 1 },
-  { label: "Houseware", value: 2 },
-  { label: "Clothings", value: 3 },
-];
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
-  const [category, setCategory] = useState(); //category object, not label
-  return (
-    <Screen>
-      <AppPicker
-        items={list}
-        icon="apps"
-        placeholder="Category"
-        selectedItem={category}
-        onSelectedItem={(item) => setCategory(item)}
-      />
-    </Screen>
-  );
+  return <LoginScreen />;
 }
