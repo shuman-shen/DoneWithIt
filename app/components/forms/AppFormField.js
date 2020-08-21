@@ -1,8 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import AppTextInput from "../AppTextInput";
-import ErrorMessage from "../ErrorMessage";
-
+import ErrorMessage from "./ErrorMessage";
 import { useFormikContext } from "formik";
 
 const AppFormField = ({ name, ...otherProps }) => {
@@ -10,8 +9,8 @@ const AppFormField = ({ name, ...otherProps }) => {
   return (
     <>
       <AppTextInput
-        onBlur={() => setFieldTouched("email")}
-        onChangeText={handleChange("email")}
+        onBlur={() => setFieldTouched(name)}
+        onChangeText={handleChange(name)}
         {...otherProps}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]}></ErrorMessage>
