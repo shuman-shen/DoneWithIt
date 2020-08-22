@@ -1,24 +1,40 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
 
-import WelcomeScreen from "./app/screens/WelcomeScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
-import AppText from "./app/components/AppText";
-import AppButton from "./app/components/AppButton";
-import Card from "./app/components/Card";
-import ListDetailsScreen from "./app/screens/ListDetailsScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 import MessageScreen from "./app/screens/MessageScreen";
-import DeliveryListScreen from "./app/screens/DeliveryListScreen";
 import Screen from "./app/components/Screen";
-import Icon from "./app/components/Icon";
-import ListItem from "./app/components/ListItem";
-import AccountScreen from "./app/screens/AccountScreen";
-import ListingsScreen from "./app/screens/ListingsScreen";
-import AppTextInput from "./app/components/AppTextInput";
-import AppPicker from "./app/components/AppPicker";
-import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
-  return <LoginScreen />;
+  const requestPermission = async () => {
+    const result = await Permissions.askAsync(
+      Permissions.CAMERA_ROLL,
+      Permissions.CAMERA
+    );
+    // const {granted} = await ImagePicker.requestCameraRollPermissionsAsync();
+    if (!result.granted) {
+      alert(
+        "You need to enable the permission to access the camera and the photo library."
+      );
+    }
+  };
+  useEffect(() => {
+    requestPermission();
+  }, []);
+
+  const selectImage = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync();
+    } catch (error) {
+      console.log("Error reading an image.");
+    }
+  };
+  return (
+    <Screen>
+      <Button title="Select an image" onPress={selectImage} />
+    </Screen>
+  );
 }

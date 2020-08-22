@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { FlatList, View, StyleSheet } from "react-native";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/lists/ListItem";
 
 import Screen from "../components/Screen";
-import ListItemSeparator from "../components/ListItemSeparator";
+import ListItemSeparator from "../components/lists/ListItemSeparator";
 import colours from "../config/colours";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
 
 const initialMessages = [
   {
@@ -18,6 +18,14 @@ const initialMessages = [
     id: 2,
     title: "T2",
     description: "D2",
+    image: require("../assets/mosh.jpg"),
+  },
+  {
+    id: 3,
+    title:
+      "T2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghggh",
+    description:
+      "T2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghggh",
     image: require("../assets/mosh.jpg"),
   },
 ];
@@ -40,6 +48,7 @@ function MessageScreen(props) {
             title={item.title}
             subtitle={item.description}
             image={item.image}
+            showChevrons={true}
             onPress={() => console.log("pressed.")}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
