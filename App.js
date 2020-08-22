@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useEffect } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Button, Image, Text } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 
@@ -21,6 +20,8 @@ export default function App() {
       );
     }
   };
+  const [imageUri, setImageUri] = useState();
+
   useEffect(() => {
     requestPermission();
   }, []);
@@ -28,6 +29,9 @@ export default function App() {
   const selectImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
+      if (!result.cancelled) {
+        setImageUri(result.uri);
+      }
     } catch (error) {
       console.log("Error reading an image.");
     }
@@ -35,6 +39,12 @@ export default function App() {
   return (
     <Screen>
       <Button title="Select an image" onPress={selectImage} />
+      <Image
+        source={{
+          uri: imageUri,
+        }}
+        style={{ width: 200, height: 200 }}
+      />
     </Screen>
   );
 }
