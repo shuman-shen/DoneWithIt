@@ -5,27 +5,30 @@ import AppText from "../components/AppText";
 import colours from "../config/colours";
 import ListItem from "../components/lists/ListItem";
 
-const ListDetailsScreen = ({ image, title, price, profile, name, count }) => (
-  <View>
-    <Image style={styles.image} source={image} />
-    <View style={styles.detailsContainer}>
-      <AppText style={styles.title}>{title}</AppText>
-      <AppText style={styles.price}>{price}</AppText>
+const ListDetailsScreen = ({ route }) => {
+  const { image, title, price } = route.params;
+  return (
+    <View>
+      <Image style={styles.image} source={image} />
+      <View style={styles.detailsContainer}>
+        <AppText style={styles.title}>{title}</AppText>
+        <AppText style={styles.price}>{`$${1000}`}</AppText>
+      </View>
+      <View style={styles.userContainer}>
+        <ListItem
+          image={require("../assets/mosh.jpg")}
+          title="Mosh Hamedani"
+          subtitle="5 Listings"
+        />
+      </View>
     </View>
-    <View style={styles.userContainer}>
-      <ListItem
-        image={require("../assets/mosh.jpg")}
-        title="Mosh Hamedani"
-        subtitle="5 Listings"
-      />
-    </View>
-  </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   image: {
     width: "100%",
-    height: 300,
+    height: 200,
   },
   detailsContainer: {
     padding: 20,
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   userContainer: {
-    marginVertical: 40,
+    marginVertical: 20,
   },
 });
 export default ListDetailsScreen;
