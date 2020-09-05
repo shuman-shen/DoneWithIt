@@ -6,13 +6,13 @@ import colours from "../config/colours";
 import ListItem from "../components/lists/ListItem";
 
 const ListDetailsScreen = ({ route }) => {
-  const { image, title, price } = route.params;
+  const { imageUrl, title, price } = route.params;
   return (
     <View>
-      <Image style={styles.image} source={image} />
+      <Image style={styles.image} source={{ uri: imageUrl }} />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.price}>{`$${1000}`}</AppText>
+        <AppText style={styles.price}>{`$${price}`}</AppText>
       </View>
       <View style={styles.userContainer}>
         <ListItem
