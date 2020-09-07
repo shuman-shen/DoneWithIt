@@ -1,9 +1,8 @@
 import React from "react";
 import { Image, Text, View, StyleSheet } from "react-native";
-
-import colours from "../config/colours";
 import AppText from "./AppText";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import colours from "../config/colours";
 
 const Card = ({ title, subtitle, imageUrl, onPress }) => (
   <TouchableWithoutFeedback onPress={onPress}>

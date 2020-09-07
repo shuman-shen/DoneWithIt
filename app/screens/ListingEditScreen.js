@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
@@ -8,10 +8,13 @@ import {
   SubmitButton,
   AppFormPicker,
 } from "../components/forms";
-import Screen from "../components/Screen";
-import CategoryPickerItem from "../components/CategoryPickerItem";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import CategoryPickerItem from "../components/CategoryPickerItem";
+import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
+//import useApi from "../hooks/useApi";
+import listingApi from "../api/listings";
+import UploadScreen from "./UploadScreen";
 
 const validationSchema = Yup.object().shape({
   images: Yup.array().min(1, "Please select at least one image."),
@@ -78,10 +81,35 @@ const categories = [
   },
 ];
 
-const RegisterScreen = () => {
+const ListingEditScreen = () => {
   const location = useLocation();
+  const [progress, setProgress] = useState(0);
+  const [uploadVisible, setUploadVisible] = useState(false);
+
+  const handleSubmit = async (listing, { resetForm }) => {
+    setProgress(0);
+    setUploadVisible(true);
+    const result = await listingApi.addListing(
+      { ...listing, location },
+      (progress) => {
+        setProgress(progress);
+      }
+    );
+
+    if (!result.ok) {
+      setUploadVisible(false);
+      return alert("Sorry, operation to add a new listing failed.");
+    }
+    resetForm();
+  };
+
   return (
     <Screen style={styles.container}>
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        progress={progress}
+        visible={uploadVisible}
+      />
       <AppForm
         initialValues={{
           images: [],
@@ -90,7 +118,7 @@ const RegisterScreen = () => {
           category: null,
           description: "",
         }}
-        onSubmit={(values) => console.log({ ...values, location })}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
@@ -129,7 +157,7 @@ const RegisterScreen = () => {
   );
 };
 
-export default RegisterScreen;
+export default ListingEditScreen;
 
 const styles = StyleSheet.create({
   container: { padding: 10 },

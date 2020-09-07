@@ -2,8 +2,8 @@ import React from "react";
 import { Image, View, StyleSheet } from "react-native";
 
 import AppText from "../components/AppText";
-import colours from "../config/colours";
 import ListItem from "../components/lists/ListItem";
+import colours from "../config/colours";
 
 const ListDetailsScreen = ({ route }) => {
   const { imageUrl, title, price } = route.params;
