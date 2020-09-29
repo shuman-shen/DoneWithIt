@@ -10,23 +10,24 @@ import colours from "../config/colours";
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
-    image: require("../assets/mosh.jpg"),
+    title: "Lorem Ipsum",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    image: require("../assets/profile.jpg"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
-    image: require("../assets/mosh.jpg"),
+    title: "Lorem Ipsum",
+    description: "Lorem ipsum dolor sit amet",
+    image: require("../assets/profile.jpg"),
   },
   {
     id: 3,
     title:
-      "T2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghggh",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     description:
-      "T2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghgghT2fhgfhgfghfhgfhgfhgffgfhfghffghfghfhhfgfghgfhgfghfhghhfghghghghghhghghgghhghghghhghgghghhgghghggh",
-    image: require("../assets/mosh.jpg"),
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    image: require("../assets/profile.jpg"),
   },
 ];
 
@@ -61,9 +62,10 @@ function MessageScreen(props) {
           setMessages([
             {
               id: 2,
-              title: "T2",
-              description: "D2",
-              image: require("../assets/mosh.jpg"),
+              title: "Lorem Ipsum",
+              description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+              image: require("../assets/profile.jpg"),
             },
           ]);
         }}
